@@ -1,0 +1,39 @@
+<h4>Agrgar persoanje</h4>
+
+<!--  Cuando creamos un formulario en Angular tenemos que crear un boton con un type submit y usar ngSubmit donde una vez que se cierre
+el formulario llamar al metodo para guardar en el backend, NO SE HACE CON UN EVENTO CLICK EN EL BOTOON -->
+<form class="row" (ngSubmit)="emitCharacter()">
+
+  <!-- "Two-Way dada binding" significa que el html le envia informacion al ts y el ts le envia informacion al html 
+      "One Way data binding" siginifca que es un solo carril de informacion, del ts al html o el html al ts
+
+
+      () los parentesis indican eventos
+      [] los corchetes asociano atributos del archivo .ts
+
+      Estos son One Way data binding
+
+      (click) [ngClass]
+
+      Pero si los combinamos [(ngModel)] estamos creando un two way data binding ya que el html cambia 
+      valores del ts y el ts cambia los valores del html
+
+
+
+
+   
+  -->
+
+
+  <input type="text" placeholder="Nombre del personaje" class="form-control mb-2" [(ngModel)]="character.name"
+    name="name">
+
+
+  <input type="number" placeholder="Poder" class="form-control mb-2" [(ngModel)]="character.power" name="power">
+
+  <button class="btn btn-primary" type="submit">Agregar</button>
+
+  <!-- Truco de angular para ver las propiedades del objeto -->
+  <pre> {{ character | json}}</pre>
+
+</form>

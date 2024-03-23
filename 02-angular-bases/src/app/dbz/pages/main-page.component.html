@@ -1,0 +1,23 @@
+<h1>DBZ Personajes</h1>
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <!-- @Input recibe informacion, en este caso el hijo 
+      
+      Entre corchetes []  va el atributo de mi componenete list (hijo) y va tomar la informacion de
+    characters que es un atributo de componenete main (padre).
+    -->
+    <app-dbz-list-character [characterList]="characters"></app-dbz-list-character>
+  </div>
+
+  <div class="col">
+
+    <!-- 
+      @Output emite informacion, en este caso el hijo al padre
+      Cuando nuestro componente hijo emite un valor se usa parentesis () -->
+      
+    <app-dbz--add-character (onNewCharacter)="onNewCharacter($event)" ></app-dbz--add-character>
+  </div>
+</div>
