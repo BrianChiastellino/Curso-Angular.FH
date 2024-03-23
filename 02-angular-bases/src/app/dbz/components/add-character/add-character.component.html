@@ -4,7 +4,7 @@
 el formulario llamar al metodo para guardar en el backend, NO SE HACE CON UN EVENTO CLICK EN EL BOTOON -->
 <form class="row" (ngSubmit)="emitCharacter()">
 
-  <!-- "Two-Way dada binding" significa que el html le envia informacion al ts y el ts le envia informacion al html 
+  <!-- "Two-Way dada binding" significa que el html le envia informacion al ts y el ts le envia informacion al html
       "One Way data binding" siginifca que es un solo carril de informacion, del ts al html o el html al ts
 
 
@@ -15,13 +15,13 @@ el formulario llamar al metodo para guardar en el backend, NO SE HACE CON UN EVE
 
       (click) [ngClass]
 
-      Pero si los combinamos [(ngModel)] estamos creando un two way data binding ya que el html cambia 
+      Pero si los combinamos [(ngModel)] estamos creando un two way data binding ya que el html cambia
       valores del ts y el ts cambia los valores del html
 
 
 
 
-   
+
   -->
 
 
@@ -34,6 +34,6 @@ el formulario llamar al metodo para guardar en el backend, NO SE HACE CON UN EVE
   <button class="btn btn-primary" type="submit">Agregar</button>
 
   <!-- Truco de angular para ver las propiedades del objeto -->
-  <pre> {{ character | json}}</pre>
+  <!-- <pre> {{ character | json}}</pre> -->
 
 </form>

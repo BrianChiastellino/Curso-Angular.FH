@@ -3,14 +3,13 @@
 
   <!-- index es una propiedad que ya nos da el ngfor para el cual podemos usar para iterar y enmuerar -->
   <!-- Podemos obtener gracias a Angular cual es el primero, cual es el ultimo, si es par o inpar, entre otros -->
-  <li class="list-group-item" *ngFor=" let character of characterList;
+  <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor=" let character of characterList;
+
    let i = index
    let isFirst = first
    let isLast = last
    let isEven = even
-   let isOdd = odd " 
-   
-   [ngClass]="{
+   let isOdd = odd " [ngClass]="{
     'list-group-item-dark': isLast,
     'list-group-item-primary': isEven}">
     <!-- El ngClass se usa como condicional, si es este valor, que tome este tipo de estilos -->
@@ -23,11 +22,17 @@
 
 
     <!-- Se suma +1 porque emíeza en 0 -->
-    <span class="text-primary">{{ i + 1 }}</span>
 
-    <span> {{ character.name}} - </span>
-    <strong>Power: </strong>
-    <span>{{ character.power }}</span>
+    <div>
+      <span class="text-primary">{{ i + 1 }}</span>
+      <span> {{ character.name}} - </span>
+      <strong>Power: </strong>
+      <span>{{ character.power }}</span>
+    </div>
+
+
+
+    <button class="btn btn-danger" (click)="onDeleteCharacter(character.id)">X</button>
 
   </li>
 </ul>
