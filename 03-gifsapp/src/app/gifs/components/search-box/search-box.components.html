@@ -1,0 +1,14 @@
+<h5>Buscar:</h5>
+<input type="text" class="form-control" placeholder="Buscar  gifs..." (keyup.enter)="searchTag( textTagInput.value )"
+  #textTagInput>
+
+<!-- Importante
+    #textTagInput cuando hacemos esa sintaxis de asterico y un nombre
+    decimos que ese input se va a llamar asi, entonces, podemos accedera sus
+    propiedades, siempre dentro del HTML NO EN EL TS
+-->
+
+<!-- KeyUp cuando levantas el dedo d la tecla -->
+<!-- Si cominamos KeyUp con enter 'keyUp.enter' se va a  disparar cuando el usuario presione enter
+  (keyup.enter)="searchTag( textTagInput.value )"
+-->
