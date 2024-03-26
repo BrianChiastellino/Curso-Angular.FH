@@ -17,6 +17,7 @@ export class SearchBoxComponent {
 
 
   searchTag(newTag: string): void {
+    console.log("algo");
     console.log(newTag);
   }
 
