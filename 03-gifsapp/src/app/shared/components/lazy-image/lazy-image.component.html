@@ -1,0 +1,18 @@
+<!--
+
+  - (load) -- accion que se ejecuta cuando la imagen se termina de renderizar
+
+  - ngStyle -- utiliza el css, usamos el oeprador terniario para mostarr o no la imagen
+
+ -->
+
+<div class="d-flex justify-content-center">
+
+  <img [src]="url" alt="alt" class="card-img-top animate__animated animate__fadeIn" (load)="onLoad()"
+    [ngStyle]="  { display: hasLoaded ? '' : 'none'}">
+
+
+  <img *ngIf="!hasLoaded" src="assets\loader.svg" alt="alt" height="35px" width="35px" class="mt-3">
+
+
+</div>
