@@ -1,10 +1,15 @@
 <div class="row mt-4">
 
-  <div class="col-3">  sidebar </div>
+  <div class="col-3">
 
-  <div class="col">  router  </div>
+    <shared-sidebar></shared-sidebar>
+  </div>
 
-
+  <div class="col">
+    <router-outlet></router-outlet>
+    <!-- Router outler verifica el url y si coincide con algun componenete lo renderiza -->
+    
+  </div>
 
 
 </div>
