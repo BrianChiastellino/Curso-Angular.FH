@@ -1,9 +1,13 @@
+
+
 <input type="text"
   placeholder="{{ placeholder }}"
-  (keyup.enter)="emitValue(txtInput.value)"
+  (keyup)="onKeyPress(txtInput.value)"
   #txtInput
-  class="form-control">
+  class="form-control"
+  [value]="initialValue">
 
   <!-- #txtInput simula un id para acceder a este input  -->
+  <!-- (keyup.enter)="emitValue(txtInput.value)" -->
 
-  
+
