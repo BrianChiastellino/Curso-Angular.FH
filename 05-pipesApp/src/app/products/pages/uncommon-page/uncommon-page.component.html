@@ -68,7 +68,7 @@
 
     <p-fieldset legend="Json Pipe" [toggleable]="true">
 
-
+      <pre> {{ person | json }}</pre>
 
     </p-fieldset>
 
@@ -78,6 +78,11 @@
 
     <p-fieldset legend="keyValue Pipe" [toggleable]="true">
 
+      <ul>
+        <li *ngFor="let item of person | keyvalue">
+          <b> {{ item.key| titlecase }}: </b> {{ item.value }}
+        </li>
+      </ul>
 
 
     </p-fieldset>
@@ -88,6 +93,12 @@
 
     <p-fieldset legend="Async Pipe" [toggleable]="true">
 
+      <pre *ngIf="!(myObservableTimer | async)">Resolviendo observable</pre>
+      <pre>{{ myObservableTimer | async }}</pre>
+
+      <pre *ngIf="!(promiseValue | async)">Resolviendo promesa</pre>
+      <pre>{{ promiseValue | async }}</pre>
+      
     </p-fieldset>
 
   </div>
