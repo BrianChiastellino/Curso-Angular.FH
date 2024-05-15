@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environments } from '../../../environments/environments';
 
@@ -13,7 +13,24 @@ export class HeroesService {
   constructor(private http: HttpClient) { }
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(` ${ this.baseUrl }/heroes` );
+    return this.http.get<Hero[]>(` ${this.baseUrl}/heroes`);
+  }
+
+
+  /* Importante
+    * En el pipe de la funcion getHeroById devolvemos un Hero o Undefined
+    * Peticion http como hacemos siempre
+    * Con el pipe, si hay un error o trae algo que no es de tipo Hero
+    * Con " of " creamos un nuevo observable y enviamos el undefined
+  */
+
+  getHeroeById(id: string): Observable<Hero | undefined> {
+    return this.http.get<Hero>(`${ this.baseUrl }/heroes/${ id }`)
+    .pipe( catchError ( error => of( undefined )) )
+  }
+
+  getSuggestion(query: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this.baseUrl}/herores?q=${query}&limit=6`);
   }
 
 }

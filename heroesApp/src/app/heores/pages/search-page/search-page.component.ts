@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-search-page',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class SearchPageComponent {
+
+  constructor(
+    private heroesService: HeroesService,
+  ) {}
 
 }
