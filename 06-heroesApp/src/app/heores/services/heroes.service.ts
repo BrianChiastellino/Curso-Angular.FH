@@ -25,12 +25,17 @@ export class HeroesService {
   */
 
   getHeroeById(id: string): Observable<Hero | undefined> {
-    return this.http.get<Hero>(`${ this.baseUrl }/heroes/${ id }`)
-    .pipe( catchError ( error => of( undefined )) )
+    return this.http.get<Hero>(`${this.baseUrl}/heroes/${id}`)
+      .pipe(catchError(error => of(undefined)))
   }
 
+  /* Importante
+   * Creamos esta query para que el usuario cuando ingrese el personaje en el input
+      con el autocomplete de Angular Material se vea como busquedas relacionadas
+ */
+
   getSuggestion(query: string): Observable<Hero[]> {
-    return this.http.get<Hero[]>(`${this.baseUrl}/herores?q=${query}&limit=6`);
+    return this.http.get<Hero[]>(`${this.baseUrl}/heroes?q=${query}&limit=6`);
   }
 
 }

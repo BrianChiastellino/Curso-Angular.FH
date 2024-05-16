@@ -9,7 +9,8 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { HeroPageComponent } from './pages/heroPage/heroPage.component';
 import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
-import { HeroImagePipe } from './pipe/hero-Image.pipe';
+import { HeroImagePipe } from './pipe/hero-image.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,12 +21,14 @@ import { HeroImagePipe } from './pipe/hero-Image.pipe';
     NewPageComponent,
     HeroPageComponent,
     CardComponent,
+
     HeroImagePipe
   ],
   imports: [
     CommonModule,
     HeoresRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class HeoresModule { }
