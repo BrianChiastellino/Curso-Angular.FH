@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipe/hero-image.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './components/dialog/confirmDialog/confirmDialog.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewPageComponent,
     HeroPageComponent,
     CardComponent,
+    ConfirmDialogComponent,
 
     HeroImagePipe
   ],

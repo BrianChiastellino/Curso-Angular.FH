@@ -22,7 +22,7 @@ export class HeroesService {
 
   updateHero(hero: Hero): Observable<Hero> {
     if (!hero) throw Error('Hero is requeired')
-    return this.http.post<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
+    return this.http.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero);
   }
 
   /* Importante
@@ -33,10 +33,10 @@ export class HeroesService {
   */
 
   deleteHeroById(id: string): Observable<boolean> {
-    return this.http.delete<Hero>(`${this.baseUrl}/heroes/${id}`)
+    return this.http.delete(`${this.baseUrl}/heroes/${id}`)
       .pipe(
+        map(resp => true),
         catchError(error => of(false)),
-        map(resp => true)
       );
   }
 

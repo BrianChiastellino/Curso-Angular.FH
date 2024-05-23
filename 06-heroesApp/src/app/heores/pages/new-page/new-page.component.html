@@ -1,4 +1,4 @@
-<h1>Editar/Agregar Heroe <small> </small> </h1>
+<h1 class="ml-2"> {{ currentHero.id ? 'Editar' : 'Agregar' }} Heroe <small> </small> </h1>
 
 <mat-divider class="mb-2"></mat-divider>
 
@@ -8,6 +8,7 @@
       <mat-card-content>
 
         <!-- [formGroup] le pasamos el formgroup para enlazar el formulario al ts -->
+        <!-- Required es para que sea obligatorio -->
 
         <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
 
@@ -48,8 +49,8 @@
         </form>
 
         <div class="flex justify-content-between">
-          <button mat-flat-button color="warn">Borrar</button>
-
+          <button *ngIf="currentHero.id" mat-flat-button color="warn" (click)="onDeleteHero()" >Borrar</button>
+          <span></span>
           <button mat-flat-button color="primary" (click)="onSubmit()">Guardar</button>
         </div>
 
@@ -60,7 +61,7 @@
 
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img src="" alt="Imagen del heroe" mat-card-image>
+      <img [src]="currentHero | heroImage" alt="Imagen del heroe" mat-card-image>
     </mat-card>
   </div>
 
