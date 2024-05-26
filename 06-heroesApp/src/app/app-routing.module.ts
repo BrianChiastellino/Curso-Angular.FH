@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Error404PageComponent } from './shared/pages/Error404Page/Error404Page.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,9 @@ const routes: Routes = [
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heores/heores.module').then(m => m.HeoresModule)
+    loadChildren: () => import('./heores/heores.module').then(m => m.HeoresModule),
+    canActivate: [ AuthGuard ],
+    canMatch: [ AuthGuard ],
   },
   {
     path: '404',
