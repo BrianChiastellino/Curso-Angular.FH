@@ -39,8 +39,8 @@ export class AuthService {
       * La doble negación (!!user) se usa para asegurar que el valor de user se convierta explícitamente a un  booleano. Esto es útil para controlar flujos lógicos de una manera clara y predecible, especialmente cuando   se trabaja con operadores de RxJS que requieren una transformación de datos.
   */
 
-  public checkAuthentication(): Observable<boolean> | boolean {
-    if (!localStorage.getItem('token')) return false;
+  public checkAuthentication(): Observable<boolean>  {
+    if (!localStorage.getItem('token')) return of(false);
 
     const token = localStorage.getItem('token');
 
@@ -49,10 +49,7 @@ export class AuthService {
         tap(user => this.user = user),
         map(user => !!user),
         catchError(error => of(false)),
-
-      )
-
-
+      );
   }
 
   logout(): void {
