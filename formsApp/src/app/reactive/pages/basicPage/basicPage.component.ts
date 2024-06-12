@@ -51,7 +51,7 @@ export class BasicPageComponent implements OnInit {
           return 'Este campo es requerido'
 
         case 'minlength':
-          return `Minimo ${errors['minlength'].requieredLength} caracteres `
+          return `Minimo ${errors['minlength'].requiredLength} caracteres`;
       }
 
 
